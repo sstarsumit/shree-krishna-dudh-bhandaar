@@ -5,6 +5,7 @@ import { ShoppingBag, CreditCard, Wallet, CheckCircle, MessageCircle, Phone, Map
 import { useCartStore } from '../context/cartStore';
 import { useAuthStore } from '../context/authStore';
 import { ordersAPI } from '../services/api';
+import { WHATSAPP_NUMBER } from '../data/mockProducts';
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
@@ -112,7 +113,7 @@ ${orderData.deliveryAddress?.fullAddress || 'Not provided'}
 
 ${orderData.orderNotes ? `*📝 Notes:* ${orderData.orderNotes}` : ''}`;
 
-    return `https://wa.me/919876543210?text=${encodeURIComponent(orderSummary)}`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderSummary)}`;
   };
 
   useEffect(() => {
@@ -236,12 +237,12 @@ ${orderData.orderNotes ? `*📝 Notes:* ${orderData.orderNotes}` : ''}`;
               <div className="mt-6 pt-6 border-t text-center">
                 <p className="text-sm text-gray-500 mb-2">Need help with your order?</p>
                 <div className="flex items-center justify-center gap-4">
-                  <a href="tel:+919876543210" className="flex items-center gap-1 text-primary hover:underline">
+                  <a href={`tel:+${WHATSAPP_NUMBER}`} className="flex items-center gap-1 text-primary hover:underline">
                     <Phone className="w-4 h-4" />
                     Call Us
                   </a>
                   <span className="text-gray-300">|</span>
-                  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-green-600 hover:underline">
+                  <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-green-600 hover:underline">
                     <MessageCircle className="w-4 h-4" />
                     WhatsApp
                   </a>

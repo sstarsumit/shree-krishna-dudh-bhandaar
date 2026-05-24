@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Plus, Edit2, Trash2, X, Upload } from 'lucide-react';
-import { productsAPI, adminAPI } from '../../services/api';
+import { productsAPI, adminAPI, API_ROOT_URL } from '../../services/api';
 import { AdminLayout } from './AdminDashboard';
 
 interface Product {
@@ -43,6 +43,11 @@ const AdminProducts = () => {
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  const getImageUrl = (image: string) => {
+    if (!image) return '';
+    return image.startsWith('http') ? image : `${API_ROOT_URL}${image}`;
+  };
 
   useEffect(() => {
     fetchProducts();
@@ -115,7 +120,7 @@ const AdminProducts = () => {
       isAvailable: product.isAvailable,
     });
     setImageFile(null);
-    setPreviewUrl(product.image || null);
+    setPreviewUrl(product.image ? getImageUrl(product.image) : null);
     setShowModal(true);
   };
 
@@ -207,7 +212,7 @@ const AdminProducts = () => {
               >
                 <div className="h-40 bg-cream-50 flex items-center justify-center">
                   {product.image ? (
-                    <img src={product.image} alt={product.productName} className="w-full h-full object-cover" />
+                    <img src={getImageUrl(product.image)} alt={product.productName} className="w-full h-full object-cover" />
                   ) : (
                     <span className="text-primary font-semibold">No Image</span>
                   )}

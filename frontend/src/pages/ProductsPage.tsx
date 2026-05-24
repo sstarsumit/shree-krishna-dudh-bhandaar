@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, X, Search, Grid, List, MessageCircle } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import { productsAPI } from '../services/api';
-import { mockProducts, generateWhatsAppDirectOrder } from '../data/mockProducts';
+import { mockProducts, generateWhatsAppDirectOrder, WHATSAPP_NUMBER } from '../data/mockProducts';
 
 interface Product {
   _id: string;
@@ -125,7 +125,7 @@ const ProductsPage = () => {
                   </p>
                 </div>
                 <a
-                  href={`https://wa.me/919876543210?text=${encodeURIComponent('Hi, I want to place an order. Please send me your product list.')}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi, I want to place an order. Please send me your product list.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg text-sm font-medium hover:bg-green-600 transition-colors"
@@ -318,7 +318,7 @@ const ProductsPage = () => {
 
         {/* WhatsApp Order Button - Fixed Position */}
         <a
-          href={`https://wa.me/919876543210?text=${encodeURIComponent('Hi, I want to place an order. Please send me your product list.')}`}
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi, I want to place an order. Please send me your product list.')}`}
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 flex items-center gap-2 px-6 py-4 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all hover:scale-105 z-40"

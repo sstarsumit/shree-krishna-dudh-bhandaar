@@ -15,11 +15,11 @@ const VisitOurShop = () => {
             <ul className="space-y-4 mb-6">
               <li className="flex items-start gap-3">
                 <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                <div className="text-gray-600">Main Market, Near Bus Stand<br/>Jaipur, Rajasthan 302001</div>
+                <div className="text-gray-600">114, A, Tagore Nagar, Kartarpura<br/>Jaipur, Rajasthan 302006</div>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-6 h-6 text-primary" />
-                <div className="text-gray-600">+91 98765 43210</div>
+                <div className="text-gray-600">+91 97850 77767, +91 98290 62058</div>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="w-6 h-6 text-primary" />
@@ -28,7 +28,7 @@ const VisitOurShop = () => {
             </ul>
 
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/919785077767"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-green-500 text-white px-5 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
@@ -41,7 +41,7 @@ const VisitOurShop = () => {
           {/* Map */}
           <div className="rounded-2xl overflow-hidden shadow-sm">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.228!2d75.7924!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDU1JzMyLjEiTiA3NcKwNDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps?q=114+A+Tagore+Nagar+Kartarpura+Jaipur+302006&output=embed"
               width="100%"
               height="340"
               style={{ border: 0 }}

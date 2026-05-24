@@ -319,7 +319,7 @@ export const mockProducts: Product[] = [
   },
 ];
 
-export const WHATSAPP_NUMBER = '919876543210';
+export const WHATSAPP_NUMBER = '919785077767';
 
 export const generateWhatsAppOrderMessage = (products: Array<{
   productName: string;

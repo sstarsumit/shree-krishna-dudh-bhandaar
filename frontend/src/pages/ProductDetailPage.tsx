@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Minus, Plus, ArrowLeft, Truck, ShieldCheck, Star } from 'lucide-react';
 import { useCartStore } from '../context/cartStore';
-import { productsAPI } from '../services/api';
+import { productsAPI, API_ROOT_URL } from '../services/api';
 import ProductCard from '../components/ProductCard';
 
 interface Product {
@@ -112,6 +112,11 @@ const ProductDetailPage = () => {
 
   const defaultImage = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"%3E%3Crect fill="%23FFFBEB" width="400" height="400"/%3E%3Ctext fill="%23F59E0B" font-family="Arial" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3EShree Krishna%3C/text%3E%3C/svg%3E';
 
+  const getImageUrl = (image: string) => {
+    if (!image) return defaultImage;
+    return image.startsWith('http') ? image : `${API_ROOT_URL}${image}`;
+  };
+
   return (
     <div className="min-h-screen pt-24 pb-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,7 +135,7 @@ const ProductDetailPage = () => {
           >
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <img
-                src={product.image || defaultImage}
+                src={product.image ? getImageUrl(product.image) : defaultImage}
                 alt={product.productName}
                 className="w-full h-96 object-cover"
                 onError={(e) => {

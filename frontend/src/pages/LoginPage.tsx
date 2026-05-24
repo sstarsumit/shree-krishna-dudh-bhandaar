@@ -4,22 +4,17 @@ import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { useAuthStore } from '../context/authStore';
 import { authAPI } from '../services/api';
-import { useEffect } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { login } = useAuthStore();
-  const { loadUser } = useAuthStore();
+  const { login, loadUser } = useAuthStore();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const from = location.state?.from?.pathname || '/';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +26,6 @@ const LoginPage = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-
     try {
       await login(formData.email, formData.password);
       navigate(from, { replace: true });
@@ -42,72 +36,32 @@ const LoginPage = () => {
     }
   };
 
-  useEffect(() => {
-    const initGoogle = () => {
-      const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-      // debug: show client id in console to verify env is loaded
-      // (this is safe — client_id is public). Remove after debugging.
-      // @ts-ignore
-      console.debug('VITE_GOOGLE_CLIENT_ID =', clientId);
-      // also expose on window for quick inspection if needed
-      // @ts-ignore
-      window.__VITE_GOOGLE_CLIENT_ID = clientId;
-      if (!clientId) {
-        setError('Google client ID missing. Add VITE_GOOGLE_CLIENT_ID to frontend/.env and restart the dev server.');
-        return;
+  // ✅ This is called by @react-oauth/google with the credential (ID token)
+  const handleGoogleSuccess = async (credentialResponse: any) => {
+    try {
+      setLoading(true);
+      // ✅ Send as { idToken } — matches backend's googleSignIn controller
+      const res = await authAPI.postGoogle(credentialResponse.credential);
+      const { token, user: socialUser } = res.data;
+      localStorage.setItem('token', token);
+
+      const missingPhone =
+        !socialUser?.phone ||
+        socialUser.phone === '6000000000' ||
+        socialUser.phone === '0000000000';
+
+      if (missingPhone) {
+        navigate('/complete-profile', { state: { from, socialUser } });
+      } else {
+        await loadUser();
+        navigate(from, { replace: true });
       }
-
-      // @ts-ignore
-      if (!window.google || !window.google.accounts || !window.google.accounts.id) return;
-
-      // @ts-ignore
-      window.google.accounts.id.initialize({
-        client_id: clientId,
-      callback: async (response: any) => {
-          if (!response?.credential) return;
-          try {
-            setLoading(true);
-            const res = await authAPI.postGoogle(response.credential);
-            const { token, user: socialUser } = res.data;
-            localStorage.setItem('token', token);
-            // If social user missing phone or has placeholder, redirect to complete-profile
-            const missingPhone = !socialUser?.phone || socialUser.phone === '6000000000' || socialUser.phone === '0000000000';
-            if (missingPhone) {
-              // navigate to complete profile to collect phone/address
-              // pass the social user so form can prefill
-              navigate('/complete-profile', { state: { from, socialUser } });
-            } else {
-              await loadUser();
-              navigate(from, { replace: true });
-            }
-          } catch (err: any) {
-            setError(err.response?.data?.message || 'Google sign-in failed');
-          } finally {
-            setLoading(false);
-          }
-        }
-      });
-
-      // render the button
-      // @ts-ignore
-      window.google.accounts.id.renderButton(
-        document.getElementById('google-signin-button'),
-        { theme: 'outline', size: 'large', width: '100%' }
-      );
-    };
-
-    // dynamically load script
-    const script = document.createElement('script');
-    script.src = 'https://accounts.google.com/gsi/client';
-    script.async = true;
-    script.defer = true;
-    script.onload = initGoogle;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Google sign-in failed');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen pt-24 pb-16 flex items-center justify-center bg-gradient-to-br from-cream-50 to-orange-50">
@@ -126,9 +80,7 @@ const LoginPage = () => {
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl text-sm">
-              {error}
-            </div>
+            <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl text-sm">{error}</div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -191,12 +143,14 @@ const LoginPage = () => {
             </button>
           </form>
 
-          <div className="mt-4 text-center">
-            <div id="google-signin-button" />
+          {/* ✅ Clean Google button — no raw GSI script needed */}
+          <div className="mt-4 flex justify-center">
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={() => setError('Google sign-in failed. Please try again.')}
+              width="368"
+            />
           </div>
-          <script>
-            {/* Google Identity Services script is loaded dynamically in useEffect */}
-          </script>
 
           <div className="mt-6 text-center">
             <p className="text-gray-600">

@@ -15,7 +15,7 @@ const products = [
     price: 64,
     unit: 'liter',
     stock: 500,
-    image: '/uploads/products/buffalo_milk.jpg',
+    image: '/uploads/products/amul-buffalo-milk-pouch-india.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -28,7 +28,7 @@ const products = [
     price: 54,
     unit: 'liter',
     stock: 500,
-    image: '/uploads/products/cow_milk.jpg',
+    image: '/uploads/products/fresh-a2-cow-milk-glass-bottle-india.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -41,7 +41,7 @@ const products = [
     price: 740,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/desi_ghee.jpg',
+    image: '/uploads/products/pure-desi-cow-ghee-traditional-bilona-jar.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -54,7 +54,7 @@ const products = [
     price: 760,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/desi_ghee.jpg',
+    image: '/uploads/products/pure-desi-gir-cow-ghee-traditional-indian-dairy.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -67,7 +67,7 @@ const products = [
     price: 300,
     unit: 'kg',
     stock: 150,
-    image: '/uploads/products/fresh_paneer.jpg',
+    image: '/uploads/products/fresh-paneer-cubes-dairy-shop.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -80,7 +80,7 @@ const products = [
     price: 300,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/cream.jpg',
+    image: '/uploads/products/amul-fresh-cream-dairy-india.jpg',
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -93,7 +93,7 @@ const products = [
     price: 640,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/butter.jpg',
+    image: '/uploads/products/homemade-white-butter-makhan-dairy.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: false
@@ -106,7 +106,7 @@ const products = [
     price: 92,
     unit: 'kg',
     stock: 200,
-    image: '/uploads/products/fresh_curd.jpg',
+    image: '/uploads/products/fresh-curd-dahi-traditional-clay-pot-india.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -119,7 +119,7 @@ const products = [
     price: 24,
     unit: 'liter',
     stock: 300,
-    image: '/uploads/products/chaach.jpg',
+    image: '/uploads/products/refreshing-indian-chaach-buttermilk-drink.jpg',
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -133,7 +133,7 @@ const products = [
     price: 360,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/milk_cake.jpg',
+    image: '/uploads/products/indian-milk-cake-mithai-sweet-shop.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -146,7 +146,7 @@ const products = [
     price: 280,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/maava.jpg',
+    image: '/uploads/products/maava-mithai-traditional-indian-sweets.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -159,7 +159,7 @@ const products = [
     price: 340,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/mishri_mawa.jpg',
+    image: '/uploads/products/mishri-mawa-indian-sweet-mithai.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -172,7 +172,7 @@ const products = [
     price: 260,
     unit: 'kg',
     stock: 120,
-    image: '/uploads/products/rasgulla.jpg',
+    image: '/uploads/products/spongy-rasgulla-bengali-sweet-india.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -185,7 +185,7 @@ const products = [
     price: 360,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/rasmalai.jpg',
+    image: '/uploads/products/creamy-rasmalai-indian-sweet-dessert.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -198,7 +198,7 @@ const products = [
     price: 340,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/rasgulla.jpg',
+    image: '/uploads/products/rasmalai-bengali-sweet-indian-creamy-dessert.jpg',
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -211,7 +211,7 @@ const products = [
     price: 320,
     unit: 'kg',
     stock: 60,
-    image: '/uploads/products/barfi.jpg',
+    image: '/uploads/products/traditional-indian-maava-mithai-barfi.jpg',
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -224,7 +224,7 @@ const products = [
     price: 400,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/barfi.jpg',
+    image: '/uploads/products/kesar-mawa-barfi-indian-sweet.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -237,7 +237,7 @@ const products = [
     price: 440,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/barfi.jpg',
+    image: '/uploads/products/kesar-mawa-barfi-indian-sweet-star-arrangement.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: false
@@ -250,7 +250,7 @@ const products = [
     price: 440,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/barfi.jpg',
+    image: '/uploads/products/traditional-indian-maava-mithai-peda.jpg',
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -263,7 +263,7 @@ const products = [
     price: 340,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/laddu.jpg',
+    image: '/uploads/products/motichoor-laddu-indian-sweet-dessert.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: false
@@ -276,7 +276,7 @@ const products = [
     price: 360,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/laddu.jpg',
+    image: '/uploads/products/motichoor-laddu-indian-sweet-with-pistachio-and-rose.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -289,7 +289,7 @@ const products = [
     price: 360,
     unit: 'kg',
     stock: 60,
-    image: '/uploads/products/barfi.jpg',
+    image: '/uploads/products/traditional-maava-mithai-indian-sweet.jpg',
     isAvailable: true,
     isFeatured: true,
     isBestSeller: false

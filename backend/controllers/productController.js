@@ -44,12 +44,16 @@ export const getProducts = async (req, res, next) => {
     const limitNum = parseInt(limit);
     const skip = (pageNum - 1) * limitNum;
 
+    console.log('📦 Fetching products with query:', JSON.stringify(query), 'Page:', pageNum);
+
     const products = await Product.find(query)
       .skip(skip)
       .limit(limitNum)
       .sort({ createdAt: -1 });
 
     const total = await Product.countDocuments(query);
+
+    console.log(`📊 Found ${products.length} products out of ${total} total`);
 
     res.json({
       success: true,
@@ -63,6 +67,7 @@ export const getProducts = async (req, res, next) => {
       }
     });
   } catch (error) {
+    console.error('❌ Error in getProducts:', error.message);
     next(error);
   }
 };

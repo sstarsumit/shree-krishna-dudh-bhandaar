@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Package, Clock, Truck, CheckCircle, XCircle, MessageCircle, Search } from 'lucide-react';
 import { ordersAPI } from '../services/api';
 import { useAuthStore } from '../context/authStore';
+import { WHATSAPP_NUMBER } from '../data/mockProducts';
 
 interface Order {
   _id: string;
@@ -94,7 +95,7 @@ Hi, I would like to check the status of my order. Please provide an update.
 
 Thank you! 🙏`;
 
-    return `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
   // Filter orders by search
@@ -318,7 +319,7 @@ Thank you! 🙏`;
               <h3 className="font-semibold text-gray-800 mb-1">Need Help?</h3>
               <p className="text-sm text-gray-600 mb-3">Chat with us on WhatsApp for order updates or any queries.</p>
               <a
-                href="https://wa.me/919876543210"
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg text-sm font-medium hover:bg-green-600 transition-colors"

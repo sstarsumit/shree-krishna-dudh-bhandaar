@@ -23,8 +23,8 @@ const ContactPage = () => {
   };
 
   const shopInfo = {
-    address: 'Main Market, Near Bus Stand, Jaipur, Rajasthan 302001',
-    phone: '+91 98765 43210',
+    address: '114, A, Tagore Nagar, Kartarpura, Jaipur 302006',
+    phone: '+91 97850 77767, +91 98290 62058',
     email: 'info@shreekrishna.com',
     hours: '7:00 AM - 9:00 PM (All Days)',
   };
@@ -72,6 +72,10 @@ const ContactPage = () => {
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">Phone</h3>
                   <p className="text-gray-600">{shopInfo.phone}</p>
+                  <div className="mt-2 text-sm text-gray-600">
+                    <div>Lalchand Yadav: <a href="tel:+919785077767" className="text-primary hover:underline">+91 97850 77767</a></div>
+                    <div>Rakesh Yadav: <a href="tel:+919829062058" className="text-primary hover:underline">+91 98290 62058</a></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,7 +106,7 @@ const ContactPage = () => {
 
             {/* WhatsApp Button */}
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/919785077767"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-green-500 text-white p-4 rounded-2xl hover:bg-green-600 transition-colors"
@@ -203,7 +207,7 @@ const ContactPage = () => {
           className="bg-white rounded-2xl overflow-hidden shadow-sm"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.228!2d75.7924!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDU1JzMyLjEiTiA3NcKwNDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+            src="https://www.google.com/maps?q=114+A+Tagore+Nagar,+Kartarpura,+Jaipur,+Rajasthan+302006&output=embed"
             width="100%"
             height="400"
             style={{ border: 0 }}

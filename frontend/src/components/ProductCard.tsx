@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Eye, Star } from 'lucide-react';
 import { useCartStore } from '../context/cartStore';
+import { API_ROOT_URL } from '../services/api';
 
 interface Product {
   _id: string;
@@ -44,6 +45,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
     setTimeout(() => setIsAdding(false), 1000);
   };
 
+  const getImageUrl = (image: string) => {
+    if (!image) return defaultImage;
+    return image.startsWith('http') ? image : `${API_ROOT_URL}${image}`;
+  };
+
   const defaultImage = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"%3E%3Crect fill="%23FFFBEB" width="400" height="400"/%3E%3Ctext fill="%23F59E0B" font-family="Arial" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3EShree Krishna%3C/text%3E%3C/svg%3E';
 
   return (
@@ -58,7 +64,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {/* Image */}
           <div className="relative h-56 overflow-hidden bg-cream-50">
             <img
-              src={product.image || defaultImage}
+              src={product.image ? getImageUrl(product.image) : defaultImage}
               alt={product.productName}
               className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
               onError={(e) => {

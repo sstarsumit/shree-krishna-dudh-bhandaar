@@ -17,10 +17,15 @@ const __dirname = path.dirname(__filename);
 // Load env vars
 dotenv.config();
 
-// Connect to database
-connectDB();
-
 const app = express();
+
+// Connect to database - with proper error handling
+const dbConnection = connectDB();
+dbConnection.then(() => {
+  console.log('✅ Database connection initiated');
+}).catch(err => {
+  console.log('⚠️  DB connection issue - proceeding anyway');
+});
 
 // Body parser
 app.use(express.json());
