@@ -51,7 +51,13 @@ const corsOptions = {
   optionsSuccessStatus: 204
 };
 
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://shree-krishna-dudh-bhandaar-front.onrender.com'
+  ],
+  credentials: true
+}));;
 app.options('*', cors(corsOptions));
 
 // Static folder for uploads
