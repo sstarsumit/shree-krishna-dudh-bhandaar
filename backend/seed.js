@@ -5,6 +5,8 @@ import User from './models/User.js';
 
 dotenv.config();
 
+const BASE = 'https://raw.githubusercontent.com/sstarsumit/shree-krishna-dudh-bhandaar/master/imgs';
+
 const products = [
   // Dairy Products - Prices from menu board
   {
@@ -15,7 +17,7 @@ const products = [
     price: 64,
     unit: 'liter',
     stock: 500,
-    image: '/uploads/products/amul-buffalo-milk-pouch-india.jpg',
+    image: `${BASE}/amul-buffalo-milk-pouch-india.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -28,7 +30,7 @@ const products = [
     price: 54,
     unit: 'liter',
     stock: 500,
-    image: '/uploads/products/fresh-a2-cow-milk-glass-bottle-india.jpg',
+    image: `${BASE}/fresh-a2-cow-milk-glass-bottle-india.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -41,7 +43,7 @@ const products = [
     price: 740,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/pure-desi-cow-ghee-traditional-bilona-jar.jpg',
+    image: `${BASE}/pure-desi-cow-ghee-traditional-bilona-jar.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -54,7 +56,7 @@ const products = [
     price: 760,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/pure-desi-gir-cow-ghee-traditional-indian-dairy.jpg',
+    image: `${BASE}/pure-desi-gir-cow-ghee-traditional-indian-dairy.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -67,7 +69,7 @@ const products = [
     price: 300,
     unit: 'kg',
     stock: 150,
-    image: '/uploads/products/fresh-paneer-cubes-dairy-shop.jpg',
+    image: `${BASE}/fresh-paneer-cubes-dairy-shop.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -80,7 +82,7 @@ const products = [
     price: 300,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/amul-fresh-cream-dairy-india.jpg',
+    image: `${BASE}/amul-fresh-cream-dairy-india.jpg`,
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -93,7 +95,7 @@ const products = [
     price: 640,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/homemade-white-butter-makhan-dairy.jpg',
+    image: `${BASE}/homemade-white-butter-makhan-dairy.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: false
@@ -106,7 +108,7 @@ const products = [
     price: 92,
     unit: 'kg',
     stock: 200,
-    image: '/uploads/products/fresh-curd-dahi-traditional-clay-pot-india.jpg',
+    image: `${BASE}/fresh-curd-dahi-traditional-clay-pot-india.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -119,7 +121,7 @@ const products = [
     price: 24,
     unit: 'liter',
     stock: 300,
-    image: '/uploads/products/refreshing-indian-chaach-buttermilk-drink.jpg',
+    image: `${BASE}/refreshing-indian-chaach-buttermilk-drink.jpg`,
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -133,7 +135,7 @@ const products = [
     price: 360,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/indian-milk-cake-mithai-sweet-shop.jpg',
+    image: `${BASE}/indian-milk-cake-mithai-sweet-shop.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -146,7 +148,7 @@ const products = [
     price: 280,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/maava-mithai-traditional-indian-sweets.jpg',
+    image: `${BASE}/maava-mithai-traditional-indian-sweets.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -159,7 +161,7 @@ const products = [
     price: 340,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/mishri-mawa-indian-sweet-mithai.jpg',
+    image: `${BASE}/mishri-mawa-indian-sweet-mithai.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -172,7 +174,7 @@ const products = [
     price: 260,
     unit: 'kg',
     stock: 120,
-    image: '/uploads/products/spongy-rasgulla-bengali-sweet-india.jpg',
+    image: `${BASE}/spongy-rasgulla-bengali-sweet-india.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -185,7 +187,7 @@ const products = [
     price: 360,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/creamy-rasmalai-indian-sweet-dessert.jpg',
+    image: `${BASE}/creamy-rasmalai-indian-sweet-dessert.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -198,7 +200,7 @@ const products = [
     price: 340,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/rasmalai-bengali-sweet-indian-creamy-dessert.jpg',
+    image: `${BASE}/rasmalai-bengali-sweet-indian-creamy-dessert.jpg`,
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -211,7 +213,7 @@ const products = [
     price: 320,
     unit: 'kg',
     stock: 60,
-    image: '/uploads/products/traditional-indian-maava-mithai-barfi.jpg',
+    image: `${BASE}/traditional-indian-maava-mithai-barfi.jpg`,
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -224,7 +226,7 @@ const products = [
     price: 400,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/kesar-mawa-barfi-indian-sweet.jpg',
+    image: `${BASE}/kesar-mawa-barfi-indian-sweet.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -237,7 +239,7 @@ const products = [
     price: 440,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/kesar-mawa-barfi-indian-sweet-star-arrangement.jpg',
+    image: `${BASE}/kesar-mawa-barfi-indian-sweet-star-arrangement.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: false
@@ -250,7 +252,7 @@ const products = [
     price: 440,
     unit: 'kg',
     stock: 80,
-    image: '/uploads/products/traditional-indian-maava-mithai-peda.jpg',
+    image: `${BASE}/traditional-indian-maava-mithai-barfi.jpg`,
     isAvailable: true,
     isFeatured: false,
     isBestSeller: false
@@ -263,7 +265,7 @@ const products = [
     price: 340,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/motichoor-laddu-indian-sweet-dessert.jpg',
+    image: `${BASE}/motichoor-laddu-indian-sweet-dessert.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: false
@@ -276,7 +278,7 @@ const products = [
     price: 360,
     unit: 'kg',
     stock: 100,
-    image: '/uploads/products/motichoor-laddu-indian-sweet-with-pistachio-and-rose.jpg',
+    image: `${BASE}/motichoor-laddu-indian-sweet-with-pistachio-and-rose.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: true
@@ -289,7 +291,7 @@ const products = [
     price: 360,
     unit: 'kg',
     stock: 60,
-    image: '/uploads/products/traditional-maava-mithai-indian-sweet.jpg',
+    image: `${BASE}/traditional-maava-mithai-indian-sweet.jpg`,
     isAvailable: true,
     isFeatured: true,
     isBestSeller: false
@@ -298,8 +300,8 @@ const products = [
 
 const adminUser = {
   name: 'Admin',
-  email: 'b231169@skit.ac.in',
-  password: 'Sumittt',
+  email: 'admin@shreekrishna.com',
+  password: 'admin123',
   phone: '9876543210',
   role: 'admin',
   address: {
