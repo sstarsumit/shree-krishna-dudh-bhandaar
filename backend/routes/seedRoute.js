@@ -39,10 +39,10 @@ router.get('/seed-now', async (req, res) => {
     await Product.insertMany(products);
    const bcrypt = await import('bcryptjs');
 const hashedPassword = await bcrypt.default.hash('sumittt', 10);
-await User.create({
+  await User.create({
       name: 'Admin',
       email: 'b231169@skit.ac.in',
-      password: hashedPassword,
+      password: 'sumittt',
       phone: '9876543210',
       role: 'admin',
       address: { street: '114, A, Tagore Nagar, Kartarpura', city: 'Jaipur', state: 'Rajasthan', pincode: '302006' }
