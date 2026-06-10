@@ -247,23 +247,42 @@ const ProductsPage = () => {
                 </button>
               </div>
             ) : (
-              <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1'}`}>
-                <AnimatePresence>
-                  {products.map((product) => (
-                    <motion.div
-                      key={product._id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                    >
-                      <ProductCard product={product} />
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
+             <div className={`grid gap-4 ${viewMode === 'grid' ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1'}`}>
+  <AnimatePresence>
+    {products.map((product) => (
+      <motion.div
+        key={product._id}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        {viewMode === 'list' ? (
+          <Link to={`/products/${product._id}`} className="flex items-center gap-4 bg-white rounded-2xl p-4 hover:shadow-md transition-shadow">
+            <img
+              src={product.image}
+              alt={product.productName}
+              className="w-24 h-24 object-cover rounded-xl flex-shrink-0"
+            />
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1">
+                {product.isBestSeller && <span className="text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-medium">Best Seller</span>}
+                {product.isFeatured && <span className="text-xs bg-green-100 text-green-600 px-2 py-0.5 rounded-full font-medium">Fresh</span>}
               </div>
-            )}
-          </div>
-        </div>
-
+              <h3 className="font-semibold text-gray-800 truncate">{product.productName}</h3>
+              <p className="text-xs text-gray-500 mb-1">{product.category} • {product.subCategory}</p>
+              <p className="text-xs text-gray-600 line-clamp-2">{product.description}</p>
+            </div>
+            <div className="flex-shrink-0 text-right">
+              <p className="text-lg font-bold text-primary">₹{product.price}</p>
+              <p className="text-xs text-gray-500">/{product.unit}</p>
+            </div>
+          </Link>
+        ) : (
+          <ProductCard product={product} />
+        )}
+      </motion.div>
+    ))}
+  </AnimatePresence>
+</div>
         <AnimatePresence>
           {showFilters && (
             <motion.div
