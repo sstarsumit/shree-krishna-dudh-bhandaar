@@ -37,13 +37,15 @@ router.get('/seed-now', async (req, res) => {
     await Product.deleteMany({});
     await User.deleteMany({});
     await Product.insertMany(products);
-    await User.create({
+   const bcrypt = await import('bcryptjs');
+const hashedPassword = await bcrypt.default.hash('sumittt', 10);
+await User.create({
       name: 'Admin',
-      email: 'admin@shreekrishna.com',
-      password: 'admin123',
+      email: 'b231169@skit.ac.in',
+      password: hashedPassword,
       phone: '9876543210',
       role: 'admin',
-      address: { street: 'Main Market', city: 'Jaipur', state: 'Rajasthan', pincode: '302001' }
+      address: { street: '114, A, Tagore Nagar, Kartarpura', city: 'Jaipur', state: 'Rajasthan', pincode: '302006' }
     });
     res.json({ success: true, message: `✅ Database seeded! ${products.length} products added.` });
   } catch (error) {
