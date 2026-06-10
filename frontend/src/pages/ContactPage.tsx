@@ -15,12 +15,15 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+ const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const text = `New Contact Message 🙏\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+    const whatsappURL = `https://wa.me/919785077767?text=${encodeURIComponent(text)}`;
+    window.open(whatsappURL, '_blank');
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
     setFormData({ name: '', email: '', phone: '', message: '' });
-  };
+};
 
   const shopInfo = {
     address: '114, A, Tagore Nagar, Kartarpura, Jaipur 302006',
